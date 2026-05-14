@@ -19,6 +19,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Extract publish binary
+        run: |
+          cd node_modules/@rootsdk/dev-tools/publish/bin
+          tar -xzf appsdk-lite-console-linux-x64-libc.tar.gz
+          chmod +x RootApp.AppSdk.Lite.Console
+
       - name: Build
         run: npm run build
 
