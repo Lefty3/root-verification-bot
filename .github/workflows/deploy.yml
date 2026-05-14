@@ -29,9 +29,7 @@ jobs:
         run: npm run build
 
       - name: Package
-        run: npx rootsdk build package
+        run: npx rootsdk build package --output-file ./dist/root-verification-bot.pkg
 
       - name: Upload to Root
-        run: |
-          PKG=$(ls *.pkg | head -1)
-          npx rootsdk upload package --file "$PKG" --authToken "${{ secrets.ROOT_AUTH_TOKEN }}"
+        run: npx rootsdk upload package --file ./dist/root-verification-bot.pkg --authToken "${{ secrets.ROOT_AUTH_TOKEN }}"
