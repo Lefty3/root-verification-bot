@@ -1,0 +1,23 @@
+{
+  "id": "AC7JOK_4jwmssP3aQYqPEw",
+  "version": "1.0.0",
+  "package": {
+    "server": {
+      "launch": "dist/main.js",
+      "deploy": [
+        "dist"
+      ],
+      "nodeModules": [
+        "node_modules"
+      ]
+    }
+  },
+  "permissions": {
+    "channel": {
+      "createMessage": true
+    },
+    "community": {
+      "manageRoles": true
+    }
+  }
+}

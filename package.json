@@ -1,0 +1,20 @@
+{
+  "name": "@verifybot/bot",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "node clean.js",
+    "start": "rootsdk start devhost"
+  },
+  "dependencies": {
+    "@rootsdk/server-bot": "latest"
+  },
+  "devDependencies": {
+    "@rootsdk/dev-tools": "latest",
+    "typescript": "5.8.2"
+  }
+}

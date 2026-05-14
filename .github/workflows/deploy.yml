@@ -1,0 +1,31 @@
+name: Deploy to Root
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Package
+        run: npx rootsdk build package
+
+      - name: Upload to Root
+        run: |
+          PKG=$(ls *.pkg | head -1)
+          npx rootsdk upload package --file "$PKG" --authToken "${{ secrets.ROOT_AUTH_TOKEN }}"
